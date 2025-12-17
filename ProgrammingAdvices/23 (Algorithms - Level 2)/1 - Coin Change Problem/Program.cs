@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,30 +8,30 @@ namespace _1___Coin_Change_Problem
 {
     internal class Program
     {
-        static List <int>  ReturnChangeVlaues(int ChangeValue)
+        static List <int> MinCurrencyDenominations(int ReturnValue)
         {
-            List<int> ChangeList = new List<int> { 1,5,10, 20, 50, 100};
-            List<int> ReturnChangeList = new List<int> { };
+            List<int> CurrencyDenominations = new List<int> { 1,5,10, 20, 50, 100};
+            List<int> ReturnCurrencyDenominationsList = new List<int> { };
 
-            byte ConuterForChangeList = 5;
+            byte ConuterCurrencyDenominations = 5;
 
-            while (ChangeValue > 0)
+            while (ReturnValue > 0)
             { 
-                if((ChangeValue >= ChangeList[ConuterForChangeList]))
+                if((ReturnValue >= ReturnCurrencyDenominationsList[ConuterForChangeList]))
                 {
-                    ReturnChangeList.Add(ChangeList[ConuterForChangeList]);
-                    ChangeValue -= ChangeList[ConuterForChangeList];
+                    ReturnCurrencyDenominationsList.Add(ReturnCurrencyDenominationsList[ConuterCurrencyDenominations]);
+                    ReturnValue -= ReturnCurrencyDenominationsList[ConuterCurrencyDenominations];
 
                 }
                 else 
                 {
-                    ConuterForChangeList--;
+                    ConuterCurrencyDenominations--;
           
                 }                  
                 
             }
 
-            return (ReturnChangeList);
+            return (ReturnCurrencyDenominationsList);
         }
 
         static void Main(string[] args)
@@ -39,11 +39,11 @@ namespace _1___Coin_Change_Problem
             int ChangeValue = 0;
             Console.WriteLine("Enter the change value: ");
             ChangeValue = Convert.ToInt32( Console.ReadLine());
-            List<int> ReturnChangeList = ReturnChangeVlaues(ChangeValue);
+            List<int> ReturnCurrencyDenominations = MinCurrencyDenominations(ChangeValue);
             Console.WriteLine("_____________________________________________");
-            Console.WriteLine("Number of Changes: " + ReturnChangeList.Count());
+            Console.WriteLine("Number of Changes: " + ReturnCurrencyDenominations.Count());
             Console.Write("List of Changes:  ");
-            ReturnChangeList.ForEach(Change => Console.Write(Change + " ,"));
+            ReturnCurrencyDenominations.ForEach(Change => Console.Write(Change + " ,"));
             Console.ReadLine();
         }
     }
