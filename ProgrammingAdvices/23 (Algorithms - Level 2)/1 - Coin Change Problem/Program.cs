@@ -41,8 +41,8 @@ namespace _1___Coin_Change_Problem
             ChangeValue = Convert.ToInt32( Console.ReadLine());
             List<int> ReturnCurrencyDenominations = MinCurrencyDenominations(ChangeValue);
             Console.WriteLine("_____________________________________________");
-            Console.WriteLine("Number of Changes: " + ReturnCurrencyDenominations.Count());
-            Console.Write("List of Changes:  ");
+            Console.WriteLine("Number of Banknotes: " + ReturnCurrencyDenominations.Count());
+            Console.Write("List of Banknotes:  ");
             ReturnCurrencyDenominations.ForEach(Change => Console.Write(Change + " ,"));
             Console.ReadLine();
         }
