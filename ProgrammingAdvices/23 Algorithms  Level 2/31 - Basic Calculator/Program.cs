@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
@@ -16,7 +16,9 @@ namespace _31___Basic_Calculator
         {
             string Operators = "+-*/";
             int Result = 0;
-            int OperatorPosition = Expression.IndexOf(Operator);
+            int OperatorPosition = 0;
+            if (Expression.Length>2)
+                OperatorPosition = Expression.Substring(1).IndexOf(Operator) +1;
             int Left = OperatorPosition - 1;
             int Right = OperatorPosition + 1;
             string LeftNum = "", RightNum = "";
@@ -24,13 +26,15 @@ namespace _31___Basic_Calculator
             int RightNumSign = 1;
             bool IsAddLeftSign = false;
             bool IsAddRightSign = false;
+            bool IsCompleteReadLeftAfterGetItsSign = false;
+            bool IsCompleteReadRgihtAfterGetItsSign = false;
 
             while (true)
                 {
                     bool IsAddNum = false;
                     bool IsAddCharToLeft = false;
                     bool  IsAddCharToRight = false;
-                if (Left > -1)
+                if (Left > -1 && !IsCompleteReadLeftAfterGetItsSign)
                 {
                     if (!Operators.Contains(Expression[Left]))
                     {
@@ -38,7 +42,7 @@ namespace _31___Basic_Calculator
                         IsAddNum = true;
                         Left--;
                     }
-                    else if ((Expression[Left] == '+' || Expression[Left] == '-') && !IsAddLeftSign && LeftNum.Length == 0)
+                    else if ((Expression[Left] == '+' || Expression[Left] == '-') && !IsAddLeftSign && LeftNum.Length >= 0)
                     {
                         if (Expression[Left] == '+')
                             LeftNumSign = 1;
@@ -47,12 +51,17 @@ namespace _31___Basic_Calculator
                         IsAddLeftSign = true;
                         IsAddCharToLeft = true;
                         Left--;
+
+                        if (LeftNum.Length > 0)
+                        {
+                            IsCompleteReadLeftAfterGetItsSign = true;
+                        }
                     }
                 }
 
 
 
-                if (Right < Expression.Length)
+                if (Right < Expression.Length && !IsCompleteReadRgihtAfterGetItsSign)
                 {
                     if ( !Operators.Contains(Expression[Right]))
                     {
@@ -70,7 +79,14 @@ namespace _31___Basic_Calculator
                             RightNumSign = -1;
                         IsAddRightSign = true;
                         IsAddCharToRight = true;
+                        if (RightNum.Length > 0)
+                        {
+                            IsCompleteReadRgihtAfterGetItsSign = true;
+                        }
+                      
+
                         Right++;
+                        
                     }
                 }
 
@@ -79,7 +95,16 @@ namespace _31___Basic_Calculator
                 {
                     break;
                 }
-            }               
+            }
+
+            if ((Operator == '*' || Operator == '/') && IsCompleteReadLeftAfterGetItsSign)
+            {
+
+                Expression = Expression.Insert(Left+1, "+");
+
+                Right++;
+                Left++;
+            }
 
             switch (Operator)
             {
@@ -118,31 +143,49 @@ namespace _31___Basic_Calculator
               return Convert.ToInt32(SimpleExpression);
             }
             int Result = 0;
-            int OperatorPosition = 0;
-            while ( SimpleExpression.Contains("*") || SimpleExpression.Contains("/") || SimpleExpression.Contains("+") || SimpleExpression.Contains("-"))
+            if (SimpleExpression[0] == '-' || SimpleExpression[0] == '+')
             {
-                if ((OperatorPosition = SimpleExpression.IndexOf('*')) != -1)
+                try
                 {
-                    Result = CalculateOneOperatorInExpression(ref SimpleExpression, '*');
-                }
+                    return int.Parse(SimpleExpression);
 
-                else if ((OperatorPosition = SimpleExpression.IndexOf('/')) != -1)
-                {
-                    Result = CalculateOneOperatorInExpression(ref SimpleExpression, '/');
                 }
-                else if ((OperatorPosition = SimpleExpression.IndexOf('+')) != -1)
+                catch 
                 {
-                    if (SimpleExpression[0] == '+')
-                        return CalculateOneOperatorInExpression(ref SimpleExpression, '+');
-                    Result = CalculateOneOperatorInExpression(ref SimpleExpression, '+');
+                    
                 }
+            }
+             while ( SimpleExpression.Contains("*") || SimpleExpression.Contains("/") || SimpleExpression.Substring(1).Contains("+") || SimpleExpression.Substring(1).Contains("-"))
+            {
+                if (SimpleExpression.IndexOf('*') != -1  || SimpleExpression.IndexOf('/') != -1 )
+                {
+                    int MulPosition = SimpleExpression.IndexOf('*');
+                    int DivPosition = SimpleExpression.IndexOf('/');
+                    if (MulPosition > -1 && (DivPosition > -1 ? (MulPosition < DivPosition ? true:false):true))
+                    {
+                        Result = CalculateOneOperatorInExpression(ref SimpleExpression, '*');
+                    }
 
-                else if ((OperatorPosition = SimpleExpression.IndexOf('-')) != -1)
-                {
-                    if (SimpleExpression[0] == '-')
-                       return CalculateOneOperatorInExpression(ref SimpleExpression, '-');
-                    Result = CalculateOneOperatorInExpression(ref SimpleExpression, '-');
+                    else 
+                    {
+                        Result = CalculateOneOperatorInExpression(ref SimpleExpression, '/');
+                    }
                 }
+                else if (SimpleExpression.IndexOf('+') != -1 || SimpleExpression.IndexOf('-') != -1)
+                {
+                    int AddPosition = SimpleExpression.Substring(1).IndexOf('+');
+                    int SubPosition = SimpleExpression.Substring(1).IndexOf('-');
+                    if (AddPosition > -1 && (SubPosition > -1 ? (AddPosition < SubPosition ? true : false) : true))
+                    {
+                        Result = CalculateOneOperatorInExpression(ref SimpleExpression, '+');
+                    }
+
+                    else 
+                    { 
+                        Result = CalculateOneOperatorInExpression(ref SimpleExpression, '-');
+                    }
+                }
+             
             }
            
                
