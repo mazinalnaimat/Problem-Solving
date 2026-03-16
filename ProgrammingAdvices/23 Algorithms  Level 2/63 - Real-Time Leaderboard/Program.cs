@@ -11,10 +11,10 @@ namespace _63___Real_Time_Leaderboard
         public int Score { get; set; }
         public string Name { get; set; }
 
-        public Player(string name, int score)
+        public Player(string Name, int Score)
         {
-            Name = name;
-            Score = score;
+            this.Name = Name;
+            this.Score = Score;
         }
 
         public int CompareTo(Player other)
