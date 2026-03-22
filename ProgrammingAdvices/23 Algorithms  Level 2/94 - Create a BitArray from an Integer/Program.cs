@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _94___Create_a_BitArray_from_an_Intege
+namespace _94___Create_a_BitArray_from_an_Integer
 {
     internal class Program
     {
