@@ -1,0 +1,3 @@
+1-Creat A "clsMyStackArr" class by clsDynamicArray.
+
+

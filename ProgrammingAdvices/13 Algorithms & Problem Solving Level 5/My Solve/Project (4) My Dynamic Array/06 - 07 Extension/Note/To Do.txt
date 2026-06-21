@@ -1,0 +1,3 @@
+1-Creat A ".DeleteFirstItem()" Functoin Member.
+2-Creat A ".DeleteLastItem()" Functoin Member.
+

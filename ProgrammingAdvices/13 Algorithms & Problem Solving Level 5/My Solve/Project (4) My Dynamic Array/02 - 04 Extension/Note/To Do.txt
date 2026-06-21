@@ -1,0 +1,3 @@
+1-Creat A ".GetItem()" Functoin Member.
+2-Creat A ".Clear()" Functoin Member.
+3-Creat A ".Reverse()" Functoin Member.

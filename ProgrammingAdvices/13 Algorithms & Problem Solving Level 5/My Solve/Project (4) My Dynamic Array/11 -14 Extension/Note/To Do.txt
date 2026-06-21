@@ -1,0 +1,6 @@
+1-Creat A ".InsertAtBeginning(T value)" Member Function.
+2-Creat A ".InsertBefore(int index, T value)" Member Function.
+3-Creat A ".InsertAfter(int index, T value)" Member Function.
+4-Creat A ".InsertAtEnd(T value)" Member Function.
+
+
