@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.7.11919.86 stable
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySol-Payment-ISP", "MySol-Payment-ISP.csproj", "{8790C6E9-8CEB-0C08-79C4-751E1529A279}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8790C6E9-8CEB-0C08-79C4-751E1529A279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8790C6E9-8CEB-0C08-79C4-751E1529A279}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8790C6E9-8CEB-0C08-79C4-751E1529A279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8790C6E9-8CEB-0C08-79C4-751E1529A279}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8C6F43AC-2BAD-4D79-AD68-B23870D50B72}
+	EndGlobalSection
+EndGlobal
