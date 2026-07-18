@@ -1,0 +1,8 @@
+USE [C21_DB1]
+GO
+CREATE PROCEDURE SP_GetPersonByID
+    @PersonID INT
+AS
+BEGIN
+    SELECT * FROM People WHERE PersonID = @PersonID
+END
