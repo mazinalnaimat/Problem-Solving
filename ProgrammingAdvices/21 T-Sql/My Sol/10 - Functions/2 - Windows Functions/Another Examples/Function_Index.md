@@ -1,0 +1,5 @@
+# Function Index
+
+- **01 Ranking**: `ROW_NUMBER`, `RANK`, `DENSE_RANK`, `NTILE`
+- **02 Aggregate With OVER**: `SUM`, `AVG`, `MIN`, `MAX`, `COUNT`, `STDEV`, `STDEVP`, `VAR`, `VARP`, `CHECKSUM_AGG`, `STRING_AGG`
+- **03 Analytic**: `LAG`, `LEAD`, `FIRST_VALUE`, `LAST_VALUE`, `CUME_DIST`, `PERCENT_RANK`, `PERCENTILE_CONT`, `PERCENTILE_DISC`
