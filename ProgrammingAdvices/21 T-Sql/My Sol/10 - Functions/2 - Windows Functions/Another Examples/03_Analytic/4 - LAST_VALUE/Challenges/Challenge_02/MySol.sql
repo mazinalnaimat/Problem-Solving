@@ -1,0 +1,21 @@
+USE WindowFunctionsTrainingDB;
+GO
+
+-- Write your solution below.
+
+
+select
+     TripID,
+     DriverName,
+     DeliveryDate,
+     DelayMinutes,
+	 LAST_VALUE(DelayMinutes)
+	 OVER
+	 (
+		partition by DriverName
+		order by DeliveryDate, TripID
+		rows between
+		unbounded preceding and unbounded following
+	 )AS LastDelayMinsPerDriver
+from DeliveryTrips
+order by DriverName, DeliveryDate, TripID;
