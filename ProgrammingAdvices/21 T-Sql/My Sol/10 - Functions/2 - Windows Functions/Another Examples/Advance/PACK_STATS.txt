@@ -1,0 +1,22 @@
+SQL Server 3NF Window Functions + CTE Challenge Pack
+
+Challenges: 50
+Medium: 25
+Hard: 25
+Files per challenge: 4
+Challenge files: 200
+Database tables: 37
+Total files: 210
+Total folders: 52
+
+Seed data:
+- Customers: 160
+- Employees: 33
+- Products: 100
+- Suppliers: 20
+- Product-supplier relationships: 300
+- Sales orders: 900
+- Order items: 3,600
+- Inventory transactions: 7,800
+- Purchase orders: 240
+- Support tickets: 320

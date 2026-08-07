@@ -1,0 +1,47 @@
+{
+  "generated_at_utc": "2026-08-06T22:15:53.205087+00:00",
+  "validation_scope": {
+    "structural_checks": true,
+    "deterministic_seed_formula_simulation": true,
+    "executed_on_sql_server_engine": false,
+    "runtime_instruction": "Run 00_Database_Setup/05_Verify_Database.sql after creating the database."
+  },
+  "challenge_count": 50,
+  "difficulty_counts": {
+    "Medium": 25,
+    "Hard": 25
+  },
+  "database_table_count": 37,
+  "checks": {
+    "challenge_count_is_50": true,
+    "medium_count_is_25": true,
+    "hard_count_is_25": true,
+    "all_challenge_folders_have_required_files": true,
+    "all_solutions_use_cte": true,
+    "all_solutions_use_window_function": true,
+    "all_solutions_pass_basic_parenthesis_check": true,
+    "all_referenced_dbo_tables_exist": true,
+    "all_in_one_has_schema_seed_indexes_and_verify": true,
+    "seed_has_same_day_repeat_orders": true,
+    "seed_has_significant_price_changes": true,
+    "seed_has_reopen_after_resolution_timing": true
+  },
+  "deterministic_seed_simulation_result_counts": {
+    "same_day_customer_groups": 30,
+    "long_inactivity_gap_rows": 688,
+    "orders_at_least_50_percent_above_previous_three_average": 49,
+    "product_price_changes_at_least_10_percent": 1726,
+    "post_order_support_spikes": 25,
+    "shipment_cost_anomalies": 19,
+    "fully_delivered_split_orders": 105,
+    "completed_delayed_orders": 288,
+    "warehouse_product_pairs_reaching_zero_or_negative_stock": 180
+  },
+  "failures": {
+    "folder_file_errors": [],
+    "cte_failures": [],
+    "window_failures": [],
+    "parenthesis_failures": [],
+    "unknown_table_references": []
+  }
+}
