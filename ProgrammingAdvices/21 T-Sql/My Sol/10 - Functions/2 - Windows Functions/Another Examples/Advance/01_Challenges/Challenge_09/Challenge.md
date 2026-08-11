@@ -1,0 +1,59 @@
+# Challenge 09: Longest Consecutive Active-Month Streak
+
+**Difficulty:** Hard  
+**Database:** `RetailOperations3NFDB`
+
+## Business scenario
+
+Retention analysts want the longest uninterrupted run of calendar months in which each customer placed at least one valid order.
+
+## Task
+
+Find each customer's longest consecutive active-month streak and return its start month, end month, and length.
+
+## Input tables
+
+- `dbo.Customers`
+- `dbo.SalesOrders`
+
+## Output columns
+
+Return the columns in this exact order:
+
+1. `CustomerNumber`
+2. `StreakStartMonth`
+3. `StreakEndMonth`
+4. `StreakMonths`
+
+## Business rules and constraints
+
+- Exclude cancelled orders.
+- Multiple orders in one month count as one active month.
+- Use the gaps-and-islands technique with `ROW_NUMBER`.
+
+## Required SQL techniques
+
+- Use at least one Common Table Expression (`WITH ... AS`).
+- Use one or more SQL Server window functions.
+- Do not solve the challenge with procedural loops or cursors.
+- Your result must be deterministic when values tie.
+
+## Required ordering
+
+Order the final result by:
+
+```sql
+ORDER BY StreakMonths DESC, CustomerNumber
+```
+
+## Setup
+
+Run:
+
+```text
+00_Database_Setup/00_All_In_One.sql
+```
+
+Then write your answer in `MySolution.sql`.
+
+Do not open `Solution.sql` until you finish your first attempt.
